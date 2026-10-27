@@ -15,7 +15,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="SupportSlot"]
+[sub_resource type="StyleBoxFlat" id="HandCard"]
 bg_color = Color(0.19, 0.16, 0.24, 1)
 border_width_left = 2
 border_width_top = 2
@@ -51,250 +51,303 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
 
 [node name="Layout" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "SANCTUARY TACTICS"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="Margin/Layout"]
+[node name="Turn" type="Label" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "BATTLEFIELD TEST"
+theme_override_font_sizes/font_size = 18
+text = "BATTLEFIELD TEST  •  TURN —"
 horizontal_alignment = 1
 
 [node name="OpponentTitle" type="Label" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 22
 text = "OPPONENT"
 horizontal_alignment = 1
 
-[node name="OpponentSupportLabel" type="Label" parent="Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "EQUIP / SUPPORT"
-horizontal_alignment = 1
-
-[node name="OpponentSupportRow" type="HBoxContainer" parent="Margin/Layout"]
+[node name="OpponentLanes" type="HBoxContainer" parent="Margin/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 8
+theme_override_constants/separation = 12
 
-[node name="Slot1" type="PanelContainer" parent="Margin/Layout/OpponentSupportRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Lane1" type="VBoxContainer" parent="Margin/Layout/OpponentLanes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("SupportSlot")
+theme_override_constants/separation = 6
 
-[node name="Label" type="Label" parent="Margin/Layout/OpponentSupportRow/Slot1"]
+[node name="LaneHealth" type="Label" parent="Margin/Layout/OpponentLanes/Lane1"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SUPPORT\n1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot2" type="PanelContainer" parent="Margin/Layout/OpponentSupportRow"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("SupportSlot")
-
-[node name="Label" type="Label" parent="Margin/Layout/OpponentSupportRow/Slot2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SUPPORT\n2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot3" type="PanelContainer" parent="Margin/Layout/OpponentSupportRow"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("SupportSlot")
-
-[node name="Label" type="Label" parent="Margin/Layout/OpponentSupportRow/Slot3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SUPPORT\n3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OpponentMonsterLabel" type="Label" parent="Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTERS"
+theme_override_font_sizes/font_size = 19
+text = "LANE 1  ● ● ●"
 horizontal_alignment = 1
 
-[node name="OpponentMonsterRow" type="HBoxContainer" parent="Margin/Layout"]
+[node name="MonsterSlot" type="PanelContainer" parent="Margin/Layout/OpponentLanes/Lane1"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 8
-
-[node name="Slot1" type="PanelContainer" parent="Margin/Layout/OpponentMonsterRow"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
-[node name="Label" type="Label" parent="Margin/Layout/OpponentMonsterRow/Slot1"]
+[node name="Info" type="Label" parent="Margin/Layout/OpponentLanes/Lane1/MonsterSlot"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTER\n1"
+theme_override_font_sizes/font_size = 18
+text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot2" type="PanelContainer" parent="Margin/Layout/OpponentMonsterRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Lane2" type="VBoxContainer" parent="Margin/Layout/OpponentLanes"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("MonsterSlot")
+theme_override_constants/separation = 6
 
-[node name="Label" type="Label" parent="Margin/Layout/OpponentMonsterRow/Slot2"]
+[node name="LaneHealth" type="Label" parent="Margin/Layout/OpponentLanes/Lane2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTER\n2"
+theme_override_font_sizes/font_size = 19
+text = "LANE 2  ● ● ●"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Slot3" type="PanelContainer" parent="Margin/Layout/OpponentMonsterRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="MonsterSlot" type="PanelContainer" parent="Margin/Layout/OpponentLanes/Lane2"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
-[node name="Label" type="Label" parent="Margin/Layout/OpponentMonsterRow/Slot3"]
+[node name="Info" type="Label" parent="Margin/Layout/OpponentLanes/Lane2/MonsterSlot"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTER\n3"
+theme_override_font_sizes/font_size = 18
+text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Divider" type="HSeparator" parent="Margin/Layout"]
+[node name="Lane3" type="VBoxContainer" parent="Margin/Layout/OpponentLanes"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="LaneHealth" type="Label" parent="Margin/Layout/OpponentLanes/Lane3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "LANE 3  ● ● ●"
+horizontal_alignment = 1
+
+[node name="MonsterSlot" type="PanelContainer" parent="Margin/Layout/OpponentLanes/Lane3"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Info" type="Label" parent="Margin/Layout/OpponentLanes/Lane3/MonsterSlot"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BattleCenter" type="Label" parent="Margin/Layout"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "—  BATTLEFIELD  —"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerTitle" type="Label" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 22
 text = "PLAYER"
 horizontal_alignment = 1
 
-[node name="PlayerMonsterLabel" type="Label" parent="Margin/Layout"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTERS"
-horizontal_alignment = 1
-
-[node name="PlayerMonsterRow" type="HBoxContainer" parent="Margin/Layout"]
+[node name="PlayerLanes" type="HBoxContainer" parent="Margin/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 8
+theme_override_constants/separation = 12
 
-[node name="Slot1" type="PanelContainer" parent="Margin/Layout/PlayerMonsterRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Lane1" type="VBoxContainer" parent="Margin/Layout/PlayerLanes"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="LaneHealth" type="Label" parent="Margin/Layout/PlayerLanes/Lane1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "LANE 1  ● ● ●"
+horizontal_alignment = 1
+
+[node name="MonsterSlot" type="PanelContainer" parent="Margin/Layout/PlayerLanes/Lane1"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
-[node name="Label" type="Label" parent="Margin/Layout/PlayerMonsterRow/Slot1"]
+[node name="Info" type="Label" parent="Margin/Layout/PlayerLanes/Lane1/MonsterSlot"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTER\n1"
+theme_override_font_sizes/font_size = 18
+text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot2" type="PanelContainer" parent="Margin/Layout/PlayerMonsterRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Lane2" type="VBoxContainer" parent="Margin/Layout/PlayerLanes"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="LaneHealth" type="Label" parent="Margin/Layout/PlayerLanes/Lane2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "LANE 2  ● ● ●"
+horizontal_alignment = 1
+
+[node name="MonsterSlot" type="PanelContainer" parent="Margin/Layout/PlayerLanes/Lane2"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
-[node name="Label" type="Label" parent="Margin/Layout/PlayerMonsterRow/Slot2"]
+[node name="Info" type="Label" parent="Margin/Layout/PlayerLanes/Lane2/MonsterSlot"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTER\n2"
+theme_override_font_sizes/font_size = 18
+text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot3" type="PanelContainer" parent="Margin/Layout/PlayerMonsterRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Lane3" type="VBoxContainer" parent="Margin/Layout/PlayerLanes"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="LaneHealth" type="Label" parent="Margin/Layout/PlayerLanes/Lane3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "LANE 3  ● ● ●"
+horizontal_alignment = 1
+
+[node name="MonsterSlot" type="PanelContainer" parent="Margin/Layout/PlayerLanes/Lane3"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
-[node name="Label" type="Label" parent="Margin/Layout/PlayerMonsterRow/Slot3"]
+[node name="Info" type="Label" parent="Margin/Layout/PlayerLanes/Lane3/MonsterSlot"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "MONSTER\n3"
+theme_override_font_sizes/font_size = 18
+text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayerSupportLabel" type="Label" parent="Margin/Layout"]
+[node name="HandTitle" type="Label" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "EQUIP / SUPPORT"
+theme_override_font_sizes/font_size = 20
+text = "YOUR HAND  •  TEST CARDS"
 horizontal_alignment = 1
 
-[node name="PlayerSupportRow" type="HBoxContainer" parent="Margin/Layout"]
+[node name="HandScroll" type="ScrollContainer" parent="Margin/Layout"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 8
+vertical_scroll_mode = 0
 
-[node name="Slot1" type="PanelContainer" parent="Margin/Layout/PlayerSupportRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Cards" type="HBoxContainer" parent="Margin/Layout/HandScroll"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Card1" type="PanelContainer" parent="Margin/Layout/HandScroll/Cards"]
+custom_minimum_size = Vector2(120, 125)
+layout_mode = 2
+theme_override_styles/panel = SubResource("HandCard")
+
+[node name="Label" type="Label" parent="Margin/Layout/HandScroll/Cards/Card1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "CARD\n1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card2" type="PanelContainer" parent="Margin/Layout/HandScroll/Cards"]
+custom_minimum_size = Vector2(120, 125)
+layout_mode = 2
+theme_override_styles/panel = SubResource("HandCard")
+
+[node name="Label" type="Label" parent="Margin/Layout/HandScroll/Cards/Card2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "CARD\n2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card3" type="PanelContainer" parent="Margin/Layout/HandScroll/Cards"]
+custom_minimum_size = Vector2(120, 125)
+layout_mode = 2
+theme_override_styles/panel = SubResource("HandCard")
+
+[node name="Label" type="Label" parent="Margin/Layout/HandScroll/Cards/Card3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "CARD\n3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card4" type="PanelContainer" parent="Margin/Layout/HandScroll/Cards"]
+custom_minimum_size = Vector2(120, 125)
+layout_mode = 2
+theme_override_styles/panel = SubResource("HandCard")
+
+[node name="Label" type="Label" parent="Margin/Layout/HandScroll/Cards/Card4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "CARD\n4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card5" type="PanelContainer" parent="Margin/Layout/HandScroll/Cards"]
+custom_minimum_size = Vector2(120, 125)
+layout_mode = 2
+theme_override_styles/panel = SubResource("HandCard")
+
+[node name="Label" type="Label" parent="Margin/Layout/HandScroll/Cards/Card5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "CARD\n5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Deck" type="Label" parent="Margin/Layout/Footer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("SupportSlot")
-
-[node name="Label" type="Label" parent="Margin/Layout/PlayerSupportRow/Slot1"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SUPPORT\n1"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+text = "DECK —"
 vertical_alignment = 1
 
-[node name="Slot2" type="PanelContainer" parent="Margin/Layout/PlayerSupportRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Discard" type="Label" parent="Margin/Layout/Footer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("SupportSlot")
-
-[node name="Label" type="Label" parent="Margin/Layout/PlayerSupportRow/Slot2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SUPPORT\n2"
+theme_override_font_sizes/font_size = 18
+text = "DISCARD —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot3" type="PanelContainer" parent="Margin/Layout/PlayerSupportRow"]
-custom_minimum_size = Vector2(0, 70)
+[node name="EndTurn" type="Button" parent="Margin/Layout/Footer"]
+custom_minimum_size = Vector2(160, 56)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("SupportSlot")
-
-[node name="Label" type="Label" parent="Margin/Layout/PlayerSupportRow/Slot3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SUPPORT\n3"
-horizontal_alignment = 1
-vertical_alignment = 1
+disabled = true
+text = "END TURN"
