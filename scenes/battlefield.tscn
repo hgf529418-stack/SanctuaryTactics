@@ -1,3 +1,300 @@
-[gd_scene format=3 uid="uid://bkv1fypceaivq"]
+[gd_scene load_steps=4 format=3 uid="uid://bkv1fypceaivq"]
 
-[node name="Node2D" type="Node2D" unique_id=1539846747]
+[sub_resource type="StyleBoxFlat" id="Background"]
+bg_color = Color(0.055, 0.075, 0.11, 1)
+
+[sub_resource type="StyleBoxFlat" id="MonsterSlot"]
+bg_color = Color(0.13, 0.19, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.42, 0.75, 0.75, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="SupportSlot"]
+bg_color = Color(0.19, 0.16, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.71, 0.59, 0.84, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Battlefield" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Background")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SANCTUARY TACTICS"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "BATTLEFIELD TEST"
+horizontal_alignment = 1
+
+[node name="OpponentTitle" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "OPPONENT"
+horizontal_alignment = 1
+
+[node name="OpponentSupportLabel" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "EQUIP / SUPPORT"
+horizontal_alignment = 1
+
+[node name="OpponentSupportRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="PanelContainer" parent="Margin/Layout/OpponentSupportRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("SupportSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/OpponentSupportRow/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SUPPORT\n1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="PanelContainer" parent="Margin/Layout/OpponentSupportRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("SupportSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/OpponentSupportRow/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SUPPORT\n2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="PanelContainer" parent="Margin/Layout/OpponentSupportRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("SupportSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/OpponentSupportRow/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SUPPORT\n3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpponentMonsterLabel" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTERS"
+horizontal_alignment = 1
+
+[node name="OpponentMonsterRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="PanelContainer" parent="Margin/Layout/OpponentMonsterRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/OpponentMonsterRow/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTER\n1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="PanelContainer" parent="Margin/Layout/OpponentMonsterRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/OpponentMonsterRow/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTER\n2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="PanelContainer" parent="Margin/Layout/OpponentMonsterRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/OpponentMonsterRow/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTER\n3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="PlayerTitle" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "PLAYER"
+horizontal_alignment = 1
+
+[node name="PlayerMonsterLabel" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTERS"
+horizontal_alignment = 1
+
+[node name="PlayerMonsterRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="PanelContainer" parent="Margin/Layout/PlayerMonsterRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/PlayerMonsterRow/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTER\n1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="PanelContainer" parent="Margin/Layout/PlayerMonsterRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/PlayerMonsterRow/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTER\n2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="PanelContainer" parent="Margin/Layout/PlayerMonsterRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("MonsterSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/PlayerMonsterRow/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "MONSTER\n3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerSupportLabel" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "EQUIP / SUPPORT"
+horizontal_alignment = 1
+
+[node name="PlayerSupportRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="PanelContainer" parent="Margin/Layout/PlayerSupportRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("SupportSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/PlayerSupportRow/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SUPPORT\n1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="PanelContainer" parent="Margin/Layout/PlayerSupportRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("SupportSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/PlayerSupportRow/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SUPPORT\n2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="PanelContainer" parent="Margin/Layout/PlayerSupportRow"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("SupportSlot")
+
+[node name="Label" type="Label" parent="Margin/Layout/PlayerSupportRow/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "SUPPORT\n3"
+horizontal_alignment = 1
+vertical_alignment = 1
