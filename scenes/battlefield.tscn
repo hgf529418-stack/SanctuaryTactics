@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkv1fypceaivq"]
+[gd_scene load_steps=5 format=3 uid="uid://bkv1fypceaivq"]
+
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_battle"]
 
 [sub_resource type="StyleBoxFlat" id="Background"]
 bg_color = Color(0.055, 0.075, 0.11, 1)
@@ -28,6 +30,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="Battlefield" type="Control"]
+script = ExtResource("1_battle")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,6 +105,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
 [node name="Info" type="Label" parent="Margin/Layout/OpponentLanes/Lane1/MonsterSlot"]
+mouse_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
@@ -196,6 +200,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("MonsterSlot")
 
 [node name="Info" type="Label" parent="Margin/Layout/PlayerLanes/Lane1/MonsterSlot"]
+mouse_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "EMPTY\nMONSTER SLOT\n\nHP —  |  SHIELD —\nSKILL —"
@@ -349,5 +354,9 @@ vertical_alignment = 1
 [node name="EndTurn" type="Button" parent="Margin/Layout/Footer"]
 custom_minimum_size = Vector2(160, 56)
 layout_mode = 2
-disabled = true
 text = "END TURN"
+
+[node name="ResetTest" type="Button" parent="Margin/Layout/Footer"]
+custom_minimum_size = Vector2(120, 56)
+layout_mode = 2
+text = "RESET TEST"
